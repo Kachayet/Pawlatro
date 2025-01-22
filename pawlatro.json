@@ -1,0 +1,18 @@
+{
+    "id": "Pawlatro",
+    "name": "Pawlatro",
+    "display_name": "Pawlatro",
+    "author": ["Kachayet"],
+    "description": "You shouldn't be seeing this...",
+    "prefix":"paw",
+    "main_file": "main.lua",
+    "Priority": 0,
+    "badge_colour": "FF230A",
+    "badge_text_colour": "FFFFFF",
+    "version": "0.0.1",
+    "depedencies": [
+        "Steamodded (>=1.*)",
+        "Lovely (>=0.6)",
+        "Balatro (==1.0.1m)"
+    ]
+}
