@@ -79,8 +79,8 @@ SMODS.Joker{
         }
     },
     rarity = 1,
-    cost = 5,
-    config = { extra = { hand_size_gain = 1, odds = 12 , hand_size = 1 } }, 
+    cost = 7,
+    config = { extra = { hand_size_gain = 1, odds = 12 , hand_size = 0 } }, 
     loc_vars = function(self, info_queue, card) 
         return { vars = { card.ability.extra.hand_size_gain, (G.GAME.probabilities.normal or 1), card.ability.extra.odds, card.ability.extra.hand_size} }
     end,
@@ -90,6 +90,7 @@ SMODS.Joker{
     calculate = function(self, card, context)
         if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
             if pseudorandom("beachtoy") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                -- Thanks to the folks at Steamodded Examples
                 -- This part plays the animation.
                 G.E_MANAGER:add_event(Event({
                     func = function()
@@ -117,7 +118,6 @@ SMODS.Joker{
                 G.hand:change_size(card.ability.extra.hand_size_gain)
                 card.ability.extra.hand_size = card.ability.extra.hand_size + card.ability.extra.hand_size_gain
             return {
-                message = "Upgraded!",
                 message = "Safe!",
                 card = card
             }
@@ -139,8 +139,8 @@ SMODS.Joker{
         }
     },
     rarity = 1,
-    cost = 5,
-    config = { extra = { joker_slots_gain = 1, odds = 12 , joker_slots = 1 } }, 
+    cost = 7,
+    config = { extra = { joker_slots_gain = 1, odds = 12 , joker_slots = 0 } }, 
     loc_vars = function(self, info_queue, card) 
         return { vars = { card.ability.extra.joker_slots_gain, (G.GAME.probabilities.normal or 1), card.ability.extra.odds, card.ability.extra.joker_slots} }
     end,
@@ -149,7 +149,8 @@ SMODS.Joker{
     end,
     calculate = function(self, card, context)
         if context.end_of_round and not context.repetition and context.game_over == false and not context.blueprint then
-            if pseudorandom("beachtoy") < G.GAME.probabilities.normal / card.ability.extra.odds then
+            if pseudorandom("pooltoy") < G.GAME.probabilities.normal / card.ability.extra.odds then
+                -- Thanks to the folks at Steamodded Examples
                 -- This part plays the animation.
                 G.E_MANAGER:add_event(Event({
                     func = function()
@@ -177,7 +178,7 @@ SMODS.Joker{
                 G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.joker_slots_gain
                 card.ability.extra.joker_slots = card.ability.extra.joker_slots + card.ability.extra.joker_slots_gain
             return {
-                message = "Upgraded!",
+                message = "Safe!",
                 card = card
             }
             end
@@ -349,7 +350,7 @@ SMODS.Joker{
 SMODS.Consumable {
     set = 'Planet',
     key = 'Cerberus',
-    config = { hand_type = 'paw_yiff'},
+    config = { hand_type = 'paw_iffy'},
     pos = {x = 0, y = 0 },
     atlas = 'IguanaTarot',
     set_card_type_badge = function(self, card, badges)
@@ -378,7 +379,7 @@ SMODS.Consumable {
 
 
 SMODS.PokerHand {
-    key = 'yiff',
+    key = 'iffy',
     chips = 50,
     mult = 5,
     l_chips = 15,
@@ -393,8 +394,8 @@ SMODS.PokerHand {
     loc_txt = {
         name = 'Iffy',
         description = {
-            '4 cards that share the numbers',
-            'of monosodium glutamate (e621)',
+            '3 cards that share the numbers',
+            'of monosodium glutamate',
         }
     },
 
